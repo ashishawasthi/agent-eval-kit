@@ -25,7 +25,7 @@ from .harness import NotFalselyGreenError, assert_can_go_red, assert_each_can_go
 from .modes import GateRunner, SmokeRunner, build_parser, eval_main
 from .report import EvalMetricResult, EvalReport, print_report
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 __all__ = [
     "EvalMetricResult",

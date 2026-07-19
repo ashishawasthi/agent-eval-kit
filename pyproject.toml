@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "agent-eval-kit"
-version = "0.1.0"
+version = "0.1.1"
 description = "The shared evaluation scaffold for hexagonal service repos: the EvalReport/EvalMetricResult types and their rendering, a run_eval.py --mode smoke|gate CLI scaffold (offline heuristic vs a shared promotion authority), a promotion-gate HTTP client (structured target, registered bundle, results[] parse, POST gate), and a not-falsely-green harness that turns 'prove this metric can go red' into a one-liner. Pure standard library except the gate client (httpx)."
 readme = "README.md"
 requires-python = ">=3.12"

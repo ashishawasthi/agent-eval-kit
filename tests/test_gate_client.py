@@ -23,6 +23,7 @@ def _client(**kwargs: object) -> PromotionGateClient:
 
 
 _RESULTS_BODY = {
+    "n_examples": 12,
     "target": {"model": "gemini-3.5-flash", "prompt_version": "v1", "dataset_id": "golden_cases"},
     "results": [
         {"metric": "sow_groundedness", "score": 0.91, "threshold": 0.80, "passed": True},
@@ -57,6 +58,8 @@ def test_evaluate_sends_structured_target_and_parses_results():
     metrics = {r.metric: (r.threshold, r.passed) for r in report.results}
     assert metrics["risk_band_accuracy"] == (0.85, False)
     assert metrics["pii_safety"] == (0.99, True)
+    # n_examples is passed through from the service body (0 when absent).
+    assert report.n_examples == 12
 
 
 @respx.mock

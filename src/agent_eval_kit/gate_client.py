@@ -147,6 +147,8 @@ class PromotionGateClient:
         # server-owned per-bundle threshold, which we pass through unchanged.
         raw = body.get("results")
         rows = raw if isinstance(raw, list) else []
+        raw_n = body.get("n_examples", 0)
+        n_examples = raw_n if isinstance(raw_n, int) else 0
         results = tuple(
             EvalMetricResult(
                 metric=str(item.get("metric", "")),
@@ -157,4 +159,4 @@ class PromotionGateClient:
             for item in rows
             if isinstance(item, dict)
         )
-        return EvalReport(dataset=dataset_path, results=results, n_examples=0)
+        return EvalReport(dataset=dataset_path, results=results, n_examples=n_examples)
